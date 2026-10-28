@@ -1,0 +1,99 @@
+{
+  "trailers": [{
+			"longDescription": "Eren's decision to whip at least 80% of the planet is about being comitted, but survey corps are determined to stop that horrible destiny.",
+			"thumbnail": "/files/snk-final-season-the-final-chapters-special-2-trailer_thumbnail.png",
+			"releaseDate": "2023-11-04",
+			"genres": [
+				"anime", "shonen", "seinen"
+			],
+			"tags": [
+				"snk", "aot", "attack-on-titan", "anime"
+			],
+			"id": "8d69a1c0-aa21-4310-b247-aabe10d9797f",
+			"shortDescription": "At last, attack on titan's finale, Eren and his folks are arriving to an end, what will happen between them? Does Eren finally reach freedom, what would happen with the rest of the world?",
+			"title": "Attack On Titan The Final Season Final Chapter",
+			"content": {
+				"duration": 78,
+				"videos": [{
+					"videoType": "mp4",
+					"url": "/files/snk-final-season-the-final-chapters-special-2-trailer_video.mp4",
+					"quality": "HD"
+				}],
+				"language": "en-us",
+				"dateAdded": "2026-10-27T10:30:00Z"
+			}
+		},
+		{
+			"longDescription": "The second part of the culling games unfolds with new epic battles but something is in behind. Kenjaku is orchestrating something sinister. What's Sukuna's plan? Hakari's battle against Kashimo seem's to be intense.",
+			"thumbnail": "/files/jjk-season-4-culling-game-part-4-trailer_thumbnail.png",
+			"releaseDate": "2026-06-19",
+			"genres": [
+				"anime", "shonen"
+			],
+			"tags": [
+				"anime", "jjk", "shonen", "gojo", "sukuna"
+			],
+			"id": "4dab109d-eab4-42b8-8b84-f0b651b8636b",
+			"shortDescription": "The culling games part 2 is here! What's Kenjau's and Sukuna's plan?",
+			"title": "Jujutsu Kaisen Season 4 Culling Game Part 2",
+			"content": {
+				"duration": 69,
+				"videos": [{
+					"videoType": "M4V",
+					"url": "/files/jjk-season-4-culling-game-part-4-trailer_video.m4v",
+					"quality": "HD"
+				}],
+				"language": "en-us",
+				"dateAdded": "2026-10-27T10:30:00Z"
+			}
+		},
+		{
+			"longDescription": "The jujutsu kaisen modulo manga has finally got the end. Mappa studio release a promotional video to celebrate the conclusion.",
+			"thumbnail": "/files/jjk-modulo-trailer_thumbnail.png",
+			"releaseDate": "2026-04-30",
+			"genres": [
+				"jjk", "shonen"
+			],
+			"tags": [
+				"jjk", "shonen", "jjk-modulo", "modulo", "dabura", "yuji"
+			],
+			"id": "ec3087f8-1c93-4b4b-bf69-de52c2d99176",
+			"shortDescription": "Jujutsu Kaisen Modulo MAPPA promotional video.",
+			"title": "Jujutsu Kaisen Modulo Promotional Video",
+			"content": {
+				"duration": 30,
+				"videos": [{
+					"videoType": "M4V",
+					"url": "/files/jjk-modulo-trailer_video.m4v",
+					"quality": "HD"
+				}],
+				"language": "en-us",
+				"dateAdded": "2026-10-27T10:30:00Z"
+			}
+		},
+		{
+			"longDescription": "Experience the epic conclusion to the Marvel saga. Heroes unite for an unprecedented battle against an unimaginable threat. The fate of the universe hangs in the balance as heroes face their greatest challenge yet. Witness the doomsday special look at what's to come.",
+			"thumbnail": "/files/avengers-doomsday-special-look-trailer_thumbnail.png",
+			"releaseDate": "2026-10-27",
+			"genres": [
+				"action", "superhero", "sci-fi"
+			],
+			"tags": [
+				"avengers", "mcu", "marvel", "doomsday", "epic"
+			],
+			"id": "f1a2b3c4-d5e6-4f7g-8h9i-j0k1l2m3n4o5",
+			"shortDescription": "Special look at Avengers: Doomsday - The ultimate battle begins.",
+			"title": "Avengers: Doomsday Special Look",
+			"content": {
+				"duration": 120,
+				"videos": [{
+					"videoType": "MP4",
+					"url": "/files/avengers-doomsday-special-look-trailer_video.mp4",
+					"quality": "HD"
+				}],
+				"language": "en-us",
+				"dateAdded": "2026-10-27T12:00:00Z"
+			}
+		}
+	]
+}

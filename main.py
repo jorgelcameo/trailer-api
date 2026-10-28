@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from typing import List
+from pathlib import Path
 
 from database import engine, get_db, Base
 from models import Trailer as TrailerModel
@@ -74,3 +76,10 @@ def delete_trailer(trailer_id: int, db: Session = Depends(get_db)):
     db.delete(db_trailer)
     db.commit()
     return None
+
+
+files_dir = Path(__file__).parent / "files"
+files_dir.mkdir(exist_ok=True)
+
+if files_dir.exists():
+    app.mount("/files", StaticFiles(directory=str(files_dir)), name="files")

@@ -1,32 +1,49 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 
 class TrailerBase(BaseModel):
     title: str
-    description: Optional[str] = None
-    video_url: str
+    short_description: Optional[str] = None
+    long_description: Optional[str] = None
+    video_url: Optional[str] = None
+    video_path: Optional[str] = None
     thumbnail_url: Optional[str] = None
+    thumbnail_path: Optional[str] = None
     release_date: Optional[datetime] = None
     duration: Optional[int] = None
+    genres: Optional[str] = None
+    tags: Optional[str] = None
+    video_type: Optional[str] = None
+    quality: Optional[str] = None
+    language: Optional[str] = None
 
 
 class TrailerCreate(TrailerBase):
-    pass
+    external_id: str
 
 
 class TrailerUpdate(BaseModel):
     title: Optional[str] = None
-    description: Optional[str] = None
+    short_description: Optional[str] = None
+    long_description: Optional[str] = None
     video_url: Optional[str] = None
+    video_path: Optional[str] = None
     thumbnail_url: Optional[str] = None
+    thumbnail_path: Optional[str] = None
     release_date: Optional[datetime] = None
     duration: Optional[int] = None
+    genres: Optional[str] = None
+    tags: Optional[str] = None
+    video_type: Optional[str] = None
+    quality: Optional[str] = None
+    language: Optional[str] = None
 
 
 class Trailer(TrailerBase):
     id: int
+    external_id: str
     created_at: datetime
     updated_at: datetime
 

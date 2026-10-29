@@ -29,5 +29,5 @@ venv.bak/
 .vscode/
 *.db
 *.sqlite3
-files/
-
+files/*
+specs/

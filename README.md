@@ -70,44 +70,84 @@ The API uses the following trailer structure (from Roku developers feed):
 }
 ```
 
+## Authentication
+
+The API uses **JWT Bearer tokens** for authentication. Admin operations (create, update, delete) require authentication.
+
+### Default Admin Credentials
+```
+username: admin
+password: admin123
+```
+
+**⚠️ Change these in production via environment variables:**
+```bash
+export ADMIN_USERNAME=your_admin
+export ADMIN_PASSWORD=your_secure_password
+export SECRET_KEY=your_secret_key
+```
+
 ## Endpoints
 
-### Trailers
-- `GET /trailers` - List all trailers (with pagination: `?skip=0&limit=10`)
-- `GET /trailers/{id}` - Get a specific trailer
-- `POST /trailers` - Create a new trailer
-- `PUT /trailers/{id}` - Update a trailer
-- `DELETE /trailers/{id}` - Delete a trailer
+### Authentication
+- `POST /login` - Get JWT access token
+- `GET /me` - Get current user info (requires token)
+
+### Trailers (Public Read)
+- `GET /trailers` - List all trailers (no auth required)
+- `GET /trailers/{id}` - Get specific trailer (no auth required)
+
+### Trailers (Admin Only)
+- `POST /trailers` - Create trailer (requires JWT token + admin role)
+- `PUT /trailers/{id}` - Update trailer (requires JWT token + admin role)
+- `DELETE /trailers/{id}` - Delete trailer (requires JWT token + admin role)
 
 ### Static Files
-- `GET /files/{filename}` - Access uploaded video and thumbnail files
+- `GET /files/{filename}` - Access video and thumbnail files
 
 ## Example Usage
 
-### List Trailers
+### 1. Login and Get Token
+```bash
+curl -X POST "http://localhost:8000/login" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=admin&password=admin123"
+```
+
+Response:
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer"
+}
+```
+
+### 2. List Trailers (Public - No Auth)
 ```bash
 curl "http://localhost:8000/trailers"
 curl "http://localhost:8000/trailers?skip=0&limit=5"
 ```
 
-### Get a Specific Trailer
+### 3. Get Current User Info
 ```bash
-curl "http://localhost:8000/trailers/1"
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  "http://localhost:8000/me"
 ```
 
-### Create a Trailer
+### 4. Create a Trailer (Admin Only)
 ```bash
+TOKEN="your_jwt_token_from_login"
+
 curl -X POST "http://localhost:8000/trailers" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "external_id": "my-trailer-1",
     "title": "My Awesome Trailer",
     "short_description": "A brief description",
-    "long_description": "A detailed description of the trailer",
-    "video_url": "https://example.com/trailer.mp4",
-    "video_path": "/files/my-trailer_video.mp4",
-    "thumbnail_url": "https://example.com/thumbnail.jpg",
-    "thumbnail_path": "/files/my-trailer_thumbnail.png",
+    "long_description": "A detailed description",
+    "video_url": "https://api.example.com/files/my-trailer_video.mp4",
+    "thumbnail_url": "https://api.example.com/files/my-trailer_thumbnail.png",
     "duration": 120,
     "genres": "action,adventure",
     "tags": "new,featured",
@@ -117,16 +157,18 @@ curl -X POST "http://localhost:8000/trailers" \
   }'
 ```
 
-### Update a Trailer
+### 5. Update a Trailer (Admin Only)
 ```bash
 curl -X PUT "http://localhost:8000/trailers/1" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"title": "Updated Title"}'
 ```
 
-### Delete a Trailer
+### 6. Delete a Trailer (Admin Only)
 ```bash
-curl -X DELETE "http://localhost:8000/trailers/1"
+curl -X DELETE "http://localhost:8000/trailers/1" \
+  -H "Authorization: Bearer $TOKEN"
 ```
 
 ## Database

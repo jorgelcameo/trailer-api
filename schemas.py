@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional, List
 
@@ -49,3 +49,33 @@ class Trailer(TrailerBase):
 
     class Config:
         from_attributes = True
+
+
+class UserCreate(BaseModel):
+    name: str
+    username: str
+    email: EmailStr
+    password: str
+
+
+class User(BaseModel):
+    id: int
+    name: str
+    username: str
+    email: str
+    is_active: bool
+    is_admin: bool
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
